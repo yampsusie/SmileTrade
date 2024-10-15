@@ -342,7 +342,7 @@
                 alert('Login successful!');
                 const adminLoginModal = bootstrap.Modal.getInstance(document.getElementById('adminLoginModal'));
                 adminLoginModal.hide();
-                showAdminDashboard();
+                window.location.href = 'admin-dashboard.html'; // 跳转到管理后台页面
             } else {
                 alert('Invalid credentials!');
             }
