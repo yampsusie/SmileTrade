@@ -224,6 +224,7 @@
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('products')">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('cart')">Cart</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('account')">Register/Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('admin')">Admin</a></li> <!-- 添加 Admin 链接 -->
                     </ul>
                 </div>
             </div>
@@ -660,8 +661,8 @@
             const username = document.getElementById('admin-username').value;
             const password = document.getElementById('admin-password').value;
 
-            // Simple authentication check
-            if (username === 'admin' && password === 'password') {
+            // 使用指定的用户名和密码进行验证
+            if (username === 'susie' && password === 'susie123') {
                 alert('Login successful!');
                 showAdminDashboard();
             } else {
