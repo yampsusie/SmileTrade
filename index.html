@@ -234,6 +234,33 @@
         <!-- Content will be displayed here based on navigation -->
     </main>
 
+    <!-- Admin Login Form -->
+    <div id="admin-login" style="display: none;">
+        <h2>Admin Login</h2>
+        <form onsubmit="adminLogin(event)">
+            <div class="mb-3">
+                <label for="admin-username" class="form-label">Username</label>
+                <input type="text" id="admin-username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="admin-password" class="form-label">Password</label>
+                <input type="password" id="admin-password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" style="display: none;">
+        <h2>Admin Dashboard</h2>
+        <div id="order-list">
+            <h3>Orders</h3>
+            <ul class="list-group" id="orders">
+                <!-- Orders will be dynamically loaded here -->
+            </ul>
+        </div>
+    </div>
+
     <footer class="bg-light text-center py-3 mt-5">
         <p>&copy; 2024 Smile Trade. All rights reserved.</p>
     </footer>
@@ -247,6 +274,11 @@
         // Simple routing function
         function navigate(page) {
             const main = document.getElementById('main-content');
+            const adminLogin = document.getElementById('admin-login');
+            const adminDashboard = document.getElementById('admin-dashboard');
+            adminLogin.style.display = 'none';
+            adminDashboard.style.display = 'none';
+
             switch(page) {
                 case 'home':
                     main.innerHTML = `
@@ -288,6 +320,9 @@
                     break;
                 case 'account':
                     showAccountPage();
+                    break;
+                case 'admin':
+                    adminLogin.style.display = 'block';
                     break;
             }
         }
@@ -576,6 +611,62 @@
                     <button class="btn btn-danger" onclick="logout()">Logout</button>
                 </div>
             `;
+        }
+
+        // Sample order data
+        const orders = [
+            { id: 1, customer: 'Alice', status: 'Pending', tracking: 'N/A' },
+            { id: 2, customer: 'Bob', status: 'Shipped', tracking: '123456789' }
+        ];
+
+        function showAdminDashboard() {
+            const adminDashboard = document.getElementById('admin-dashboard');
+            const ordersElement = document.getElementById('orders');
+            adminDashboard.style.display = 'block';
+            ordersElement.innerHTML = orders.map(order => `
+                <li class="list-group-item">
+                    <strong>Order ID:</strong> ${order.id} <br>
+                    <strong>Customer:</strong> ${order.customer} <br>
+                    <strong>Status:</strong> ${order.status} <br>
+                    <strong>Tracking:</strong> ${order.tracking} <br>
+                    <button class="btn btn-primary btn-sm" onclick="updateOrderStatus(${order.id})">Update Status</button>
+                    <button class="btn btn-secondary btn-sm" onclick="updateTracking(${order.id})">Update Tracking</button>
+                </li>
+            `).join('');
+        }
+
+        function updateOrderStatus(orderId) {
+            const newStatus = prompt('Enter new status (e.g., Shipped, Delivered):');
+            const order = orders.find(o => o.id === orderId);
+            if (order && newStatus) {
+                order.status = newStatus;
+                alert(`Order ${orderId} status updated to ${newStatus}`);
+                showAdminDashboard(); // Refresh the dashboard
+            }
+        }
+
+        function updateTracking(orderId) {
+            const newTracking = prompt('Enter new tracking number:');
+            const order = orders.find(o => o.id === orderId);
+            if (order && newTracking) {
+                order.tracking = newTracking;
+                alert(`Order ${orderId} tracking updated to ${newTracking}`);
+                showAdminDashboard(); // Refresh the dashboard
+            }
+        }
+
+        function adminLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+
+            // Simple authentication check
+            if (username === 'admin' && password === 'password') {
+                alert('Login successful!');
+                showAdminDashboard();
+            } else {
+                alert('Invalid credentials!');
+            }
         }
 
         // Initialize
