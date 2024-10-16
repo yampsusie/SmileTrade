@@ -35,7 +35,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: bold;
             font-size: 1.2rem;
-            color: #bfa76f; /* 浅金色 */
+            color: #bfa76f;
         }
         .logo {
             width: 50px;
@@ -50,15 +50,24 @@
         }
         .carousel-caption h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px; /* 缩小间距 */
+            margin-bottom: 10px;
+        }
+        .product-category {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .product-category:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .product-category img {
-            width: 100px;
+            width: 150px;
             height: auto;
+            border-radius: 8px;
         }
         .video-container {
-            width: 800px; /* 设置视频宽度 */
-            height: 400px; /* 设置视频高度 */
+            width: 800px;
+            height: 400px;
             max-width: 100%;
             margin: 0 auto;
             position: relative;
@@ -68,10 +77,10 @@
             height: 100%;
         }
         .btn-enter {
-            background-color: #bfa76f; /* 浅金色 */
+            background-color: #bfa76f;
             color: #fff;
             border: none;
-            padding: 6px 12px; /* 缩小按钮 */
+            padding: 6px 12px;
             font-size: 0.9rem;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -226,17 +235,17 @@
                     break;
                 case 'products':
                     main.innerHTML = `
-                        <h2>Product Categories</h2>
-                        <div class="row">
-                            <div class="col-md-4 product-category text-center" onclick="loadProductDetails('spiritual')">
+                        <h2 class="text-center mb-4">Product Categories</h2>
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 product-category text-center" onclick="loadProductDetails('spiritual')">
                                 <img src="https://github.com/yampsusie/SmileTrade/raw/main/imgs/universe-7651376_640.jpg" alt="Spiritual" class="img-fluid">
                                 <h3>Spiritual</h3>
                             </div>
-                            <div class="col-md-4 product-category text-center" onclick="loadProductDetails('gifts')">
+                            <div class="col-md-3 product-category text-center" onclick="loadProductDetails('gifts')">
                                 <img src="https://github.com/yampsusie/SmileTrade/raw/main/imgs/stack-20241_640.jpg" alt="Gifts" class="img-fluid">
                                 <h3>Gifts</h3>
                             </div>
-                            <div class="col-md-4 product-category text-center" onclick="loadProductDetails('approach')">
+                            <div class="col-md-3 product-category text-center" onclick="loadProductDetails('approach')">
                                 <img src="https://github.com/yampsusie/SmileTrade/raw/main/imgs/ai-generated-bird.jpg" alt="Approach" class="img-fluid">
                                 <h3>Approach</h3>
                             </div>
@@ -299,6 +308,11 @@
         function showAccountPage() {
             const main = document.getElementById('main-content');
             main.innerHTML = '<h2>Welcome to your account page!</h2>';
+        }
+
+        function loadProductDetails(category) {
+            const main = document.getElementById('main-content');
+            main.innerHTML = `<h2>${category} Details</h2><p>Details about ${category} products.</p>`;
         }
 
         // Initialize
