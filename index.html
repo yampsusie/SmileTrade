@@ -34,11 +34,11 @@
         .navbar-brand {
             font-family: 'Playfair Display', serif;
             font-weight: bold;
-            font-size: 1.2rem; /* 缩小字体 */
+            font-size: 1.2rem;
             color: #bfa76f;
         }
         .logo {
-            width: 50px; /* 缩小logo */
+            width: 50px;
             height: 50px;
         }
         .carousel-caption {
@@ -49,8 +49,26 @@
             text-align: center;
         }
         .product-category img {
-            width: 100px; /* 缩小产品展示图 */
+            width: 100px;
             height: auto;
+        }
+        .video-container {
+            width: 80%; /* 缩小视频比例 */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .btn-enter {
+            background-color: #bfa76f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .btn-enter:hover {
+            background-color: #a58e5f;
         }
     </style>
 </head>
@@ -169,15 +187,17 @@
             switch(page) {
                 case 'home':
                     main.innerHTML = `
-                        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <video src="https://github.com/yampsusie/SmileTrade/raw/main/imgs/171124_B1_HD_001.mp4" autoplay loop muted controlslist="nodownload nofullscreen noremoteplayback"></video>
+                        <div class="video-container">
+                            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <video src="https://github.com/yampsusie/SmileTrade/raw/main/imgs/171124_B1_HD_001.mp4" autoplay loop muted controlslist="nodownload nofullscreen noremoteplayback"></video>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-caption">
-                                <h1>WELCOME</h1>
-                                <button class="btn-enter" onclick="navigate('products')">ENTER</button>
+                                <div class="carousel-caption">
+                                    <h1>WELCOME</h1>
+                                    <button class="btn-enter" onclick="navigate('products')">ENTER</button>
+                                </div>
                             </div>
                         </div>
                     `;
