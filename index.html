@@ -57,7 +57,6 @@
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('products')">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('cart')">Cart</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('account')">Register/Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,31 +66,6 @@
     <main class="container mt-4" id="main-content">
         <!-- Content will be displayed here based on navigation -->
     </main>
-
-    <!-- Admin Login Modal -->
-    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form onsubmit="adminLogin(event)">
-                        <div class="mb-3">
-                            <label for="admin-username" class="form-label">Username</label>
-                            <input type="text" id="admin-username" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="admin-password" class="form-label">Password</label>
-                            <input type="password" id="admin-password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="bg-light text-center py-3 mt-5">
         <p>&copy; 2024 Smile Trade. All rights reserved.</p>
@@ -148,22 +122,6 @@
                 case 'account':
                     showAccountPage();
                     break;
-            }
-        }
-
-        function adminLogin(event) {
-            event.preventDefault();
-            const username = document.getElementById('admin-username').value;
-            const password = document.getElementById('admin-password').value;
-
-            // 使用指定的用户名和密码进行验证
-            if (username === 'susie' && password === 'susie123') {
-                alert('Login successful!');
-                const adminLoginModal = bootstrap.Modal.getInstance(document.getElementById('adminLoginModal'));
-                adminLoginModal.hide();
-                window.location.href = 'admin-dashboard.html'; // 确保路径正确
-            } else {
-                alert('Invalid credentials!');
             }
         }
 
