@@ -39,6 +39,7 @@
             <a href="#" onclick="showSection('orders')">Order Tracking</a>
             <a href="#" onclick="showSection('logistics')">Logistics Information</a>
             <a href="#" onclick="showSection('others')">Others</a>
+            <a href="#" onclick="logout()">Logout</a>
         </div>
         <div class="content flex-grow-1">
             <div id="orders" class="section">
@@ -65,6 +66,14 @@
                 section.style.display = 'none';
             });
             document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function logout() {
+            // 清除管理员登录状态（如果有）
+            // localStorage.removeItem('adminLoggedIn'); // 如果使用 localStorage 记录登录状态
+
+            // 返回到主页
+            window.location.href = 'index.html';
         }
     </script>
 </body>

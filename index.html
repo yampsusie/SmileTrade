@@ -7,200 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-color: #f3f4f6;
-            color: #333;
-        }
-        .welcome-section {
-            position: relative;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-image: url('path/to/your/image.jpg');
-            background-size: cover;
-            background-position: center;
-            margin: 0 5cm;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        main {
-            flex: 1;
-            padding: 2rem;
-        }
-        footer {
-            background-color: #e9ecef;
-            text-align: center;
-            padding: 1rem;
-            margin-top: auto;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-        .navbar-brand {
-            font-family: 'Playfair Display', serif;
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: #bfa76f; /* Artistic gold color */
-        }
-        .welcome-section {
-            position: relative;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-color: #f8f9fa;
-            margin: 0 5cm;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .welcome-text {
-            position: absolute;
-            font-size: 4rem;
-            color: #333;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 10;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .image-slider {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            animation: slide 10s infinite;
-        }
-        .image-slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .image-slider img.active {
-            opacity: 1;
-        }
-        @keyframes slide {
-            0%, 20% { transform: translateX(0); }
-            25%, 45% { transform: translateX(-100%); }
-            50%, 70% { transform: translateX(-200%); }
-            75%, 95% { transform: translateX(-300%); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .product-category {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 2rem; /* Increase space between category and image */
-        }
-        .product-category img {
-            width: 100%;
-            height: 400px; /* Set a fixed height for a vertical rectangle */
-            object-fit: cover; /* Crop the image to fit the container */
-            margin-bottom: 1rem; /* Increase space between image and category name */
-        }
-        .product-category:hover {
-            transform: scale(1.05);
-        }
-        .btn-primary, .btn-success, .btn-danger {
-            background-color: #bfa76f; /* Artistic gold color */
-            border-color: #bfa76f;
-        }
-        .btn-primary:hover, .btn-success:hover, .btn-danger:hover {
-            background-color: #a8905e; /* Slightly darker gold for hover effect */
-            border-color: #a8905e;
-        }
-        .navbar-brand svg {
-            fill: #333;
-            stroke: #333;
-        }
-        .badge {
-            background-color: #bfa76f; /* Artistic gold color */
-            color: #fff; /* Ensure text is readable */
-        }
-        .image-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .image-gallery img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            object-fit: cover; /* Ensures the image covers the entire area */
-        }
-        .image-gallery img:hover {
-            transform: scale(1.05);
-        }
-        .carousel {
-            max-width: 1000px; /* Increase the max-width for larger video */
-            margin: 0 auto; /* Center the carousel */
-            position: relative;
-        }
-        .carousel-item video {
-            width: 100%;
-            height: auto;
-            object-fit: cover; /* Ensures the video covers the entire area */
-        }
-        .carousel-caption {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        .carousel-caption h1 {
-            font-size: 4rem; /* Original font size */
-            font-family: 'Playfair Display', serif; /* Artistic font */
-            color: #fff;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Enhanced shadow for 3D effect */
-            margin-bottom: 0.5rem; /* Reduced space between WELCOME and ENTER */
-        }
-        .carousel-caption .btn-enter {
-            font-size: 1rem;
-            padding: 0.5rem 1.5rem;
-            background-color: #bfa76f;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 25px; /* Rounded corners */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 3D effect */
-        }
-        .carousel-caption .btn-enter:hover {
-            background-color: #a8905e;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced 3D effect on hover */
-        }
-        .center-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh; /* Adjust height as needed */
-        }
-        .center-image img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain; /* Ensures the image fits within the container */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+        /* Your existing styles */
     </style>
 </head>
 <body>
@@ -224,7 +31,7 @@
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('products')">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('cart')">Cart</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('account')">Register/Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Admin</a></li> <!-- 使用模态框 -->
+                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -260,23 +67,11 @@
         </div>
     </div>
 
-    <!-- Admin Dashboard -->
-    <div id="admin-dashboard" style="display: none;">
-        <h2>Admin Dashboard</h2>
-        <div id="order-list">
-            <h3>Orders</h3>
-            <ul class="list-group" id="orders">
-                <!-- Orders will be dynamically loaded here -->
-            </ul>
-        </div>
-    </div>
-
     <footer class="bg-light text-center py-3 mt-5">
         <p>&copy; 2024 Smile Trade. All rights reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Initialize Stripe
         const stripe = Stripe('your-publishable-key-here');
@@ -285,7 +80,7 @@
         function navigate(page) {
             const main = document.getElementById('main-content');
             const adminDashboard = document.getElementById('admin-dashboard');
-            adminDashboard.style.display = 'none';
+            if (adminDashboard) adminDashboard.style.display = 'none';
 
             switch(page) {
                 case 'home':
@@ -346,12 +141,6 @@
             } else {
                 alert('Invalid credentials!');
             }
-        }
-
-        function showAdminDashboard() {
-            const adminDashboard = document.getElementById('admin-dashboard');
-            adminDashboard.style.display = 'block';
-            // Load orders or other admin data
         }
 
         // Initialize
