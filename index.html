@@ -7,7 +7,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Your existing styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+        footer {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #bfa76f;
+        }
     </style>
 </head>
 <body>
@@ -79,8 +105,6 @@
         // Simple routing function
         function navigate(page) {
             const main = document.getElementById('main-content');
-            const adminDashboard = document.getElementById('admin-dashboard');
-            if (adminDashboard) adminDashboard.style.display = 'none';
 
             switch(page) {
                 case 'home':
